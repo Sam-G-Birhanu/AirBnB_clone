@@ -1,6 +1,7 @@
 import uuid
 from datetime import datetime
 import json
+from .file_storage import storage
 
 """The Basemodel class defines a basic model structure.
 
@@ -39,6 +40,7 @@ class BaseModel:
             self.my_number = ""
             self.created_at = datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%f")
             self.updated_at = datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%f")
+            storage.new()
         
     def updated_at(self):
         """Return the current value of the 'updated_at' attribute."""
@@ -47,6 +49,7 @@ class BaseModel:
     def save(self):
         """Update the 'updated_at' attribute to the current timestamp."""
         self.updated_at = datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%f")
+        storage.save()
 
     def to_dict(self):
         """Convert the object to a dictionary for serialization."""
