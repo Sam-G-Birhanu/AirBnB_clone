@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import cmd
 import readline
-
+""" the HBNBCommand class defines a class that is the entry point of the command interpreter """
 class HBNBCommand(cmd.Cmd):
     """ entry point of the command interpreter """
     prompt = "(hbnb) "
