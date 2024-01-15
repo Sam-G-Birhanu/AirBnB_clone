@@ -10,7 +10,7 @@ class HBNBCommand(cmd.Cmd):
         """ if EOF has been reached or triggered by <ctrl D> from the user, the program terminates  """
         return True
     def do_quit(self, args):
-        """ quit exits or terminates the program """ 
+        """ Quit command to exit the program """ 
         return True
 
 if __name__ == "__main__":
