@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 import cmd
 import readline
-""" This module is the entry point of the command line """
-class HBNBCommand(cmd.Cmd):
-    """
+"""
     The HBNBCommand class defines a command-line interpreter for the HBNB project.
 
     Attributes:
@@ -16,8 +14,9 @@ class HBNBCommand(cmd.Cmd):
     Usage:
         Run this script to start the HBNB command-line interpreter.
     """
+class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
-
+    
     def do_EOF(self, line):
         """Handles the End-of-File event, terminating the program."""
         return True
