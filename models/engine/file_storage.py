@@ -15,7 +15,7 @@ Note:
 """
 
 class FileStorage:
-    file_path = "file.json"
+    file_path = "AirBnB_clone/models/engine/file.json"
     __objects = {}
     
     def __init__(self):
