@@ -47,3 +47,5 @@ class FileStorage:
             with open(FileStorage.file_path, 'r') as file:
                 data = file.read()
             FileStorage.__objects = json.loads(data)
+        else:
+            pass
