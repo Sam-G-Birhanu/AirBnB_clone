@@ -17,7 +17,7 @@ Note:
 """
 
 class FileStorage:
-    file_path = "models/engine/file.json"
+    __file_path = "models/engine/file.json"
     __objects = {}
     
     def __init__(self):
