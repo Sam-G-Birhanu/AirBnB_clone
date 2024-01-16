@@ -59,4 +59,4 @@ class BaseModel:
 
     def __str__(self):
         """Return a human-readable string representation of the object."""
-        return f"[Basemodel] ({self.id}) {str(self.__dict__)}"
+        return f"[BaseModel] ({self.id}) {str(self.__dict__)}"
