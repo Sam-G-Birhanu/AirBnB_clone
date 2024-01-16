@@ -1,4 +1,5 @@
 import json
+import os
 """ The class FileStorage contains data serialization methods.
 
 Attributes:
@@ -42,7 +43,7 @@ class FileStorage:
 
     def reload(self):
         """Deserializes the JSON file to __objects (only if the JSON file (__file_path) exists)."""
-        if FileStorage.file_path:
+        if os.path.exists(FileStorage.file_path) and os.path.getsize(FileStorage.file_path) > 0:
             with open(FileStorage.file_path, 'r') as file:
                 data = file.read()
             FileStorage.__objects = json.loads(data)
