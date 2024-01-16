@@ -52,7 +52,7 @@ class FileStorage:
                 
                 for key, value in deserialized_data.items():
                     # class_name, obj_id = key.split('.')
-                    module_name = models.base_model
+                    module_name = 'models.base_model'
                     module = importlib.import_module(module_name)
                     class_ = getattr(module, BaseModel)
                     instance = class_(**value)
