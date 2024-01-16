@@ -15,7 +15,7 @@ Note:
 """
 
 class FileStorage:
-    file_path = "engine/file.json"
+    file_path = "file.json"
     __objects = {}
     
     def __init__(self):
