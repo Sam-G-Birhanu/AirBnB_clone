@@ -35,11 +35,12 @@ class BaseModel:
                 if key == "updated_at":
                     setattr(self, 'updated_at' , datetime.strptime(kwargs[key], "%Y-%m-%dT%H:%M:%S.%f"))
         else:
-            self.id = str(uuid.uuid4())
-            # self.name = ""
-            # self.my_number = ""
-            self.created_at = datetime.now()
+            self.my_number = ""
+            self.name = ""
             self.updated_at = datetime.now()
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now()
+            
             # storage.new()
         
     def updated_at(self):
