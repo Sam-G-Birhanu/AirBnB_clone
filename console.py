@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import cmd
 import readline
-
+""" This module defines the entrance of the console """
 class HBNBCommand(cmd.Cmd):
     """
     The HBNBCommand class defines a command-line interpreter for the HBNB project.
