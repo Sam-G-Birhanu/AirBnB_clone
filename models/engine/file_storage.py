@@ -33,7 +33,7 @@ class FileStorage:
         self.class_name = self.temp_dict.pop('__class__', None)
         self.key = f"{self.class_name}.{str(obj.id)}"
         FileStorage.__objects[self.key] = self.temp_dict
-        return FileStorage.__objects
+        # return FileStorage.__objects
         
     def save(self):
         """Serializes __objects to the JSON file (path: __file_path)."""
