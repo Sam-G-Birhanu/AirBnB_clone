@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 import cmd
 import readline
-"""
+
+class HBNBCommand(cmd.Cmd):
+    """
     The HBNBCommand class defines a command-line interpreter for the HBNB project.
 
     Attributes:
@@ -14,7 +16,6 @@ import readline
     Usage:
         Run this script to start the HBNB command-line interpreter.
     """
-class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
     
     def do_EOF(self, line):
