@@ -3,7 +3,7 @@ import os
 """ The class FileStorage contains data serialization methods.
 
 Attributes:
-    file_path (str): Defines the file path to the JSON FileStorage.
+    __file_path (str): Defines the file path to the JSON FileStorage.
     __objects (dict): A dictionary that contains objects stored in FileStorage.
 
 Methods:
@@ -38,13 +38,13 @@ class FileStorage:
     def save(self):
         """Serializes __objects to the JSON file (path: __file_path)."""
         __objects_json = json.dumps(FileStorage.__objects)
-        with open(FileStorage.file_path, 'w') as file:
+        with open(FileStorage.__file_path, 'w') as file:
             file.write(__objects_json)
 
     def reload(self):
         """Deserializes the JSON file to __objects (only if the JSON file (__file_path) exists)."""
-        if os.path.exists(FileStorage.file_path) and os.path.getsize(FileStorage.file_path) > 0:
-            with open(FileStorage.file_path, 'r') as file:
+        if os.path.exists(FileStorage.__file_path) and os.path.getsize(FileStorage.__file_path) > 0:
+            with open(FileStorage.__file_path, 'r') as file:
                 data = file.read()
             FileStorage.__objects = json.loads(data)
         else:
