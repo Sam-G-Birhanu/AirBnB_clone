@@ -38,8 +38,8 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.name = ""
             self.my_number = ""
-            self.created_at = datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%f")
-            self.updated_at = datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%f")
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
             # storage.new()
         
     def updated_at(self):
@@ -54,9 +54,11 @@ class BaseModel:
     def to_dict(self):
         """Convert the object to a dictionary for serialization."""
         inst_dict = {'__class__' : 'BaseModel'}
+        self.created_at = datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%f")
+        self.updated_at = datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%f")
         inst_dict.update(self.__dict__.copy())
         return inst_dict
 
     def __str__(self):
         """Return a human-readable string representation of the object."""
-        return f"[BaseModel] ({self.id}) {str(self.__dict__)}"
+        return f"[{BaseModel.__name__}] ({self.id}) {str(self.__dict__)}"
