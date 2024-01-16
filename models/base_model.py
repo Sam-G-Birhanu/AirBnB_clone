@@ -1,7 +1,7 @@
 import uuid
 from datetime import datetime
 import json
-from models import storage
+import storage
 
 """The Basemodel class defines a basic model structure.
 
