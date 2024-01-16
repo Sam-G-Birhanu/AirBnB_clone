@@ -1,3 +1,4 @@
+import json
 """ The class FileStorage contains data serialization methods.
 
 Attributes:
