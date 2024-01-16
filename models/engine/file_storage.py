@@ -1,6 +1,7 @@
 import json
 import os
-from models.base_model import BaseModel
+# from models.base_model import BaseModel
+import importlib
 """ The class FileStorage contains data serialization methods.
 
 Attributes:
@@ -47,8 +48,15 @@ class FileStorage:
         if os.path.exists(FileStorage.__file_path) and os.path.getsize(FileStorage.__file_path) > 0:
             with open(FileStorage.__file_path, 'r') as file:
                 data = file.read()
-                my_dict = json.loads(data)
+                deserialized_data = json.loads(data)
                 
-            FileStorage.__objects = BaseModel(my_dict)
+                for key, value in deserialized_data.items():
+                class_name, obj_id = key.split('.')
+                module_name = models.base_model
+                module = importlib.import_module(module_name)
+                class_ = getattr(module, class_name)
+                instance = class_(**value)
+                FileStorage.__objects[key] = instance
+            # FileStorage.__objects = BaseModel(my_dict)
         else:
             pass
