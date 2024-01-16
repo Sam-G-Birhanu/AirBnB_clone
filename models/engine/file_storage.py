@@ -47,7 +47,7 @@ class FileStorage:
         if os.path.exists(FileStorage.__file_path) and os.path.getsize(FileStorage.__file_path) > 0:
             with open(FileStorage.__file_path, 'r') as file:
                 data = file.read()
-                my_dict = = json.loads(data)
+                my_dict = json.loads(data)
                 
             FileStorage.__objects = BaseModel(my_dict)
         else:
