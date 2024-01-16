@@ -36,8 +36,8 @@ class BaseModel:
                     setattr(self, 'updated_at' , datetime.strptime(kwargs[key], "%Y-%m-%dT%H:%M:%S.%f"))
         else:
             self.id = str(uuid.uuid4())
-            self.name = ""
-            self.my_number = ""
+            # self.name = ""
+            # self.my_number = ""
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
             # storage.new()
