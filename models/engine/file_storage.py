@@ -57,9 +57,10 @@ class FileStorage:
                     module = importlib.import_module(module_name)
                     class_ = getattr(module, 'BaseModel')
                     instance = class_(**value)
+                    ####
                     instance.updated_at = datetime.strftime("%Y-%m-%dT%H:%M:%S.%f")
-                    instance.created_at = datetime.strftime("%Y-%m-%dT%H:%M:%S.%f")
-                    
+                    instance.created_at = datetime.strptime("%Y-%m-%dT%H:%M:%S.%f")
+                    ####
                     print("I'm Value")
                     print(value)
                     FileStorage.__objects[key] = instance
