@@ -2,7 +2,7 @@
 import cmd
 import readline
 
- """The HBNBCommand class defines a command-line interpreter for the HBNB project.
+"""The HBNBCommand class defines a command-line interpreter for the HBNB project.
 
     Attributes:
         prompt (str): The command prompt displayed to the user.
