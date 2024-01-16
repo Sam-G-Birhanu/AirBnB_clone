@@ -1,6 +1,6 @@
 import json
 import os
-from ..models.base_model import BaseModel
+from .models.base_model import BaseModel
 """ The class FileStorage contains data serialization methods.
 
 Attributes:
