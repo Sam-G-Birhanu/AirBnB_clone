@@ -1,8 +1,10 @@
 #!/usr/bin/python3
+""" Entry point of the console """
 import cmd
 import readline
 
-"""The HBNBCommand class defines a command-line interpreter for the HBNB project.
+class HBNBCommand(cmd.Cmd):
+    """The HBNBCommand class defines a command-line interpreter for the HBNB project.
 
     Attributes:
         prompt (str): The command prompt displayed to the user.
@@ -14,7 +16,6 @@ import readline
     Usage:
         Run this script to start the HBNB command-line interpreter.
     """
-class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
     
     def do_EOF(self, line):
