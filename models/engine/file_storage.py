@@ -43,6 +43,7 @@ class FileStorage:
         """Serializes __objects to the JSON file (path: __file_path)."""
         new_dict = copy.deepcopy(FileStorage.__objects)
         for obj in new_dict:
+            print(obj)
             obj.updated_at = obj.updated_at.isoformat()
             obj.created_at = obj.created_at.isoformat()
         __objects_json = json.dumps(new_dict)
