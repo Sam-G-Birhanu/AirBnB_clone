@@ -57,8 +57,8 @@ class BaseModel:
         """Convert the object to a dictionary for serialization."""
         inst_dict = {'__class__': 'BaseModel'}
         inst_dict.update(self.__dict__.copy())
-        inst_dict['created_at'] = self.created_at.isoformat()
-        inst_dict['updated_at'] = self.updated_at.isoformat()
+        inst_dict['created_at'] = self.created_at
+        inst_dict['updated_at'] = self.updated_at
         return inst_dict
 
     def __str__(self):
