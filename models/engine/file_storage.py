@@ -1,5 +1,6 @@
 import json
 import os
+import copy
 # from models.base_model import BaseModel
 import importlib
 from datetime import datetime
@@ -35,7 +36,9 @@ class FileStorage:
         self.temp_dict = obj.to_dict()
         self.class_name = self.temp_dict.pop('__class__', None)
         self.key = f"{self.class_name}.{str(obj.id)}"
-        FileStorage.__objects[self.key] = self.temp_dict
+        obj_copy = copy.deepcopy(obj)
+        delattr(obj_copy, __class__)
+        FileStorage.__objects[self.key] = obj_copy
         # return FileStorage.__objects
         
     def save(self):
@@ -58,8 +61,8 @@ class FileStorage:
                     class_ = getattr(module, 'BaseModel')
                     instance = class_(**value)
                     ####
-                    instance.updated_at = datetime.strftime("%Y-%m-%dT%H:%M:%S.%f")
-                    instance.created_at = datetime.strptime("%Y-%m-%dT%H:%M:%S.%f")
+                    # instance.updated_at = datetime.strftime("%Y-%m-%dT%H:%M:%S.%f")
+                    # instance.created_at = datetime.strptime("%Y-%m-%dT%H:%M:%S.%f")
                     ####
                     print("I'm Value")
                     print(value)
