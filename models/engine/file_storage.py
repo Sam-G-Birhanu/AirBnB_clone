@@ -37,8 +37,8 @@ class FileStorage:
         self.temp_dict = obj.to_dict()
         self.class_name = self.temp_dict.pop('__class__', None)
         self.key = f"{self.class_name}.{str(obj.id)}"
-        obj_copy.updated_at = obj_copy.updated_at.isoformat()
-        obj_copy.created_at = obj_copy.created_at.isoformat()
+        # obj_copy.updated_at = obj_copy.updated_at.isoformat()
+        # obj_copy.created_at = obj_copy.created_at.isoformat()
         FileStorage.__objects[self.key] = obj_copy.__dict__
         
     def save(self):
