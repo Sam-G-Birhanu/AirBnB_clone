@@ -44,6 +44,7 @@ class FileStorage:
     def save(self):
         """Serializes __objects to the JSON file (path: __file_path)."""
         new_dict = copy.deepcopy(FileStorage.__objects)
+        print(new_dict)
         for obj in new_dict.values():
             # print(obj)
             obj['updated_at'] = obj['updated_at'].isoformat()
