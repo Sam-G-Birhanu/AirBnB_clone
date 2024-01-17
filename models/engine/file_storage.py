@@ -41,7 +41,11 @@ class FileStorage:
         
     def save(self):
         """Serializes __objects to the JSON file (path: __file_path)."""
-        __objects_json = json.dumps(FileStorage.__objects)
+        new_dict = copy.deepcopy(__objects)
+        for obj in new_dict.:
+            obj.updated_at = obj.updated_at.isoformat()
+            obj.created_at = obj.created_at.isoformat()
+        __objects_json = json.dumps(new_dict)
         with open(FileStorage.__file_path, 'w') as file:
             file.write(__objects_json)
 
@@ -59,8 +63,8 @@ class FileStorage:
                     class_ = getattr(module, 'BaseModel')
                     instance = class_(**value)
                     ####
-                    # instance.updated_at = datetime.strftime("%Y-%m-%dT%H:%M:%S.%f")
-                    # instance.created_at = datetime.strptime("%Y-%m-%dT%H:%M:%S.%f")
+                    instance.updated_at = datetime.strptime(instance.updated_at,"%Y-%m-%dT%H:%M:%S.%f")
+                    instance.created_at = datetime.strptime(instance.created_at,"%Y-%m-%dT%H:%M:%S.%f")
                     ####
                     print("I'm Value")
                     print(value)
