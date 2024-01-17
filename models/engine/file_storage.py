@@ -45,7 +45,7 @@ class FileStorage:
         """Serializes __objects to the JSON file (path: __file_path)."""
         new_dict = copy.deepcopy(FileStorage.__objects)
         for obj in new_dict.values():
-            print(obj)
+            # print(obj)
             obj['updated_at'] = obj['updated_at'].isoformat()
             obj['created_at'] = obj['created_at'].isoformat()
         __objects_json = json.dumps(new_dict)
@@ -69,11 +69,11 @@ class FileStorage:
                     instance.updated_at = datetime.strptime(instance.updated_at.isoformat(),"%Y-%m-%dT%H:%M:%S.%f")
                     instance.created_at = datetime.strptime(instance.created_at.isoformat(),"%Y-%m-%dT%H:%M:%S.%f")
                     ####
-                    print("I'm Value")
-                    print(value)
+                    # print("I'm Value")
+                    # print(value)
                     FileStorage.__objects[key] = instance
-                    print("I'm instance")
-                    print(instance)
+                    # print("I'm instance")
+                    # print(instance)
             # # FileStorage.__objects = BaseModel(my_dict)
         else:
             pass
