@@ -49,14 +49,14 @@ class BaseModel:
     
     def save(self):
         """Update the 'updated_at' attribute to the current timestamp."""
-        self.updated_at = datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%f")
+        self.updated_at = datetime.now().isoformat()
         storage.save()
 
     def to_dict(self):
         """Convert the object to a dictionary for serialization."""
         inst_dict = {'__class__' : 'BaseModel'}
-        self.created_at = datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%f")
-        self.updated_at = datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%f")
+        self.created_at = datetime.now().isoformat()
+        self.updated_at = datetime.now().isoformat()
         inst_dict.update(self.__dict__.copy())
         return inst_dict
 
