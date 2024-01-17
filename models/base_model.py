@@ -53,10 +53,10 @@ class BaseModel:
 
     def to_dict(self):
         """Convert the object to a dictionary for serialization."""
-        inst_dict = {'__class__' : 'BaseModel'}
-        self.created_at = datetime.now().isoformat()
-        self.updated_at = datetime.now().isoformat()
+        inst_dict = {'__class__': 'BaseModel'}
         inst_dict.update(self.__dict__.copy())
+        inst_dict['created_at'] = self.created_at.isoformat()
+        inst_dict['updated_at'] = self._updated_at.isoformat()
         return inst_dict
 
     def __str__(self):
