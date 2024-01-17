@@ -38,9 +38,9 @@ class BaseModel:
         else:
             self.my_number = ""
             self.name = ""
-            self.updated_at = datetime.now()
+            self.updated_at = datetime.now().isoformat()
             self.id = str(uuid.uuid4())
-            self.created_at = datetime.now()            
+            self.created_at = datetime.now().isoformat()            
             storage.new(self)
         
     def updated_at(self):
