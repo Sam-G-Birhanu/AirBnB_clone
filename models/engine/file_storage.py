@@ -33,13 +33,11 @@ class FileStorage:
         
     def new(self, obj):
         """Sets in __objects the obj with key <obj class name>.id."""
+        obj_copy = copy.deepcopy(obj)
         self.temp_dict = obj.to_dict()
         self.class_name = self.temp_dict.pop('__class__', None)
         self.key = f"{self.class_name}.{str(obj.id)}"
-        obj_copy = copy.deepcopy(obj)
-        delattr(obj_copy, __class__)
-        FileStorage.__objects[self.key] = obj_copy
-        # return FileStorage.__objects
+        FileStorage.__objects[self.key] = obj_copy.__dict__
         
     def save(self):
         """Serializes __objects to the JSON file (path: __file_path)."""
