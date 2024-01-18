@@ -51,7 +51,7 @@ class FileStorage:
         #     # print("This is type of new_dict in save")
         #     # print(type(new_dict))
         for obj in new_dict.values():
-                # print(type(obj))
+                print(type(obj))
             if type(obj) != dict:
                 print(obj)
                 obj = obj.__dict__
