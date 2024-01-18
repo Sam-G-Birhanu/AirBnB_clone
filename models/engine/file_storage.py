@@ -80,7 +80,8 @@ class FileStorage:
                     ####
                     # print("I'm Value")
                     # print(value)
-                    FileStorage.__objects[key] = instance
+                    self.new(instance)
+                    # FileStorage.__objects[key] = instance
                     # print(FileStorage.__objects[key])
                     # print(instance)
             # # FileStorage.__objects = BaseModel(my_dict)
