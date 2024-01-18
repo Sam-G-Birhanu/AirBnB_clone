@@ -50,11 +50,11 @@ class FileStorage:
         # else:
         #     # print("This is type of new_dict in save")
         #     # print(type(new_dict))
-        for obj in new_dict.values():
+        for key,obj in new_dict.items():
             print(type(obj))
             if type(obj) != dict:
                 print("i'm in")
-                obj = obj.__dict__
+                new_dict[key] = obj.__dict__
                 print(type(obj))
                 print(obj)
             obj['updated_at'] = obj['updated_at'].isoformat()
