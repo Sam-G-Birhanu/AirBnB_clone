@@ -29,7 +29,13 @@ class FileStorage:
 
     def all(self):
         """Returns the __objects dictionary."""
-        return self.__objects
+        for obj in FileStorage.__objects.values():
+            obj_copy = copy.deepcopy(obj)
+            self.temp_dict = obj.to_dict()
+            self.class_name = self.temp_dict.pop('__class__', None)
+            self.key = f"{self.class_name}.{str(obj.id)}"
+            FileStorage.__objects[self.key] = obj_copy.__dict__
+        return FileStorage.__objects
         
     def new(self, obj):
         """Sets in __objects the obj with key <obj class name>.id."""
