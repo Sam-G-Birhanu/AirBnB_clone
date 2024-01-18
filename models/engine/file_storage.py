@@ -32,7 +32,7 @@ class FileStorage:
         new_obj = copy.deepcopy(FileStorage.__objects)
         for obj in new_obj.values():
             obj_copy = copy.deepcopy(obj)
-            self.temp_dict = obj.__dict__
+            self.temp_dict = obj
             self.class_name = self.temp_dict.pop('__class__', None)
             self.key = f"{self.class_name}.{str(obj.id)}"
             FileStorage.__objects[self.key] = obj_copy.__dict__
