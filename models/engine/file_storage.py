@@ -83,6 +83,7 @@ class FileStorage:
                     ####
                     # print("I'm Value")
                     print(key)
+                    print(instance)
                     FileStorage.__objects[key] = instance
                     # print(FileStorage.__objects[key])
                     # print(instance)
