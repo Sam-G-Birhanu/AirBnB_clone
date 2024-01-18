@@ -53,7 +53,7 @@ class FileStorage:
         for obj in new_dict.values():
             print(type(obj))
             if type(obj) != dict:
-                print(obj)
+                print("i'm in")
                 obj = obj.__dict__
             obj['updated_at'] = obj['updated_at'].isoformat()
             obj['created_at'] = obj['created_at'].isoformat()
