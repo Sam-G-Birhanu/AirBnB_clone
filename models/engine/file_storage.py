@@ -100,7 +100,7 @@ class FileStorage:
                     FileStorage.__objects[key] = instance
                     # print(FileStorage.__objects[key])
                     # print(instance)
-            print(self.all())
+            # print(self.all())
             # # FileStorage.__objects = BaseModel(my_dict)
         else:
             pass
