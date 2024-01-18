@@ -46,7 +46,7 @@ class FileStorage:
         new_dict = copy.deepcopy(FileStorage.__objects)
         print(new_dict)
         for obj in new_dict.values():
-            # print(obj)
+            print(type(obj))
             obj['updated_at'] = obj['updated_at'].isoformat()
             obj['created_at'] = obj['created_at'].isoformat()
         __objects_json = json.dumps(new_dict)
