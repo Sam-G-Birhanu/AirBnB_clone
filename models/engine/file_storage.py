@@ -70,7 +70,7 @@ class FileStorage:
             with open(FileStorage.__file_path, 'r') as file:
                 data = file.read()
                 deserialized_data = json.loads(data)
-                FileStorage.__objects = deserialized_data
+                # FileStorage.__objects = deserialized_data
                 for key, value in deserialized_data.items():
                     # class_name, obj_id = key.split('.')
                     module_name = 'models.base_model'
