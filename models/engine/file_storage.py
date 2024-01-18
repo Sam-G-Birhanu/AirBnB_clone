@@ -82,7 +82,7 @@ class FileStorage:
                     instance.created_at = datetime.strptime(instance.created_at.isoformat(),"%Y-%m-%dT%H:%M:%S.%f")
                     ####
                     # print("I'm Value")
-                    # print(value)
+                    print(key)
                     FileStorage.__objects[key] = instance
                     # print(FileStorage.__objects[key])
                     # print(instance)
