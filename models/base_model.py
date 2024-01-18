@@ -51,8 +51,8 @@ class BaseModel:
         """Update the 'updated_at' attribute to the current timestamp."""
         # self.updated_at = datetime.now().isoformat()
         # self.created_at = datetime.now().isoformat()
-        if type(storage) != dict:
-            storage = storage.__dict__
+        # if type(storage) != dict:
+        #     storage = storage.__dict__
         storage.save()
 
     def to_dict(self):
