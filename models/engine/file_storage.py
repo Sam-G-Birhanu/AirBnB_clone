@@ -46,12 +46,13 @@ class FileStorage:
         new_dict = copy.deepcopy(FileStorage.__objects)
         if type(new_dict) != dict:
             new_dict = new_dict.__dict__
-        print("This is type of new_dict in save")
-        print(type(new_dict))
-        for obj in new_dict.values():
-            print(type(obj))
-            obj['updated_at'] = obj['updated_at'].isoformat()
-            obj['created_at'] = obj['created_at'].isoformat()
+        else:
+            print("This is type of new_dict in save")
+            print(type(new_dict))
+            for obj in new_dict.values():
+                print(type(obj))
+                obj['updated_at'] = obj['updated_at'].isoformat()
+                obj['created_at'] = obj['created_at'].isoformat()
         __objects_json = json.dumps(new_dict)
         with open(FileStorage.__file_path, 'w') as file:
             file.write(__objects_json)
