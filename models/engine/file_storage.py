@@ -51,15 +51,15 @@ class FileStorage:
         #     # print("This is type of new_dict in save")
         #     # print(type(new_dict))
         for key,obj in new_dict.items():
-            print(type(obj))
+            # print(type(obj))
             if type(obj) != dict:
-                print("i'm in")
+                # print("i'm in")
                 new_dict[key] = obj.__dict__
-                print(type(obj))
-                print(obj)
+                # print(type(obj))
+                # print(obj)
             new_dict[key]['updated_at'] = new_dict[key]['updated_at'].isoformat()
             new_dict[key]['created_at'] = new_dict[key]['created_at'].isoformat()
-        print(new_dict)
+        # print(new_dict)
         __objects_json = json.dumps(new_dict)
         with open(FileStorage.__file_path, 'w') as file:
             file.write(__objects_json)
