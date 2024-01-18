@@ -31,7 +31,7 @@ class FileStorage:
         """Returns the __objects dictionary."""
         for obj in FileStorage.__objects.values():
             obj_copy = copy.deepcopy(obj)
-            self.temp_dict = obj.to_dict()
+            self.temp_dict = obj.__dict__
             self.class_name = self.temp_dict.pop('__class__', None)
             self.key = f"{self.class_name}.{str(obj.id)}"
             FileStorage.__objects[self.key] = obj_copy.__dict__
