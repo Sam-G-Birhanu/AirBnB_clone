@@ -57,7 +57,7 @@ class FileStorage:
                 obj = obj.__dict__
             obj['updated_at'] = obj['updated_at'].isoformat()
             obj['created_at'] = obj['created_at'].isoformat()
-        # print(new_dict)
+        print(new_dict)
         __objects_json = json.dumps(new_dict)
         with open(FileStorage.__file_path, 'w') as file:
             file.write(__objects_json)
