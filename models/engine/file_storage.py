@@ -44,6 +44,8 @@ class FileStorage:
     def save(self):
         """Serializes __objects to the JSON file (path: __file_path)."""
         new_dict = copy.deepcopy(FileStorage.__objects)
+        if type(new_dict)) != dict:
+            new_dict = new_dict.__dict__
         print("This is type of new_dict in save")
         print(type(new_dict))
         for obj in new_dict.values():
