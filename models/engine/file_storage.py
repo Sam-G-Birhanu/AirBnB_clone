@@ -29,7 +29,7 @@ class FileStorage:
 
     def all(self):
         """Returns the __objects dictionary."""
-        new_obj = copy.deepcopy(FileStorage)
+        new_obj = copy.deepcopy(FileStorage.__objects)
         for obj in new_obj.values():
             obj_copy = copy.deepcopy(obj)
             self.temp_dict = obj.__dict__
