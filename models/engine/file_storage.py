@@ -40,7 +40,7 @@ class FileStorage:
         # obj_copy.updated_at = obj_copy.updated_at.isoformat()
         # obj_copy.created_at = obj_copy.created_at.isoformat()
         FileStorage.__objects[self.key] = obj_copy.__dict__
-        print(obj_copy.__dict__)
+        # print(obj_copy.__dict__)
         
     def save(self):
         """Serializes __objects to the JSON file (path: __file_path)."""
