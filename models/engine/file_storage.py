@@ -38,7 +38,10 @@ class FileStorage:
                 self.temp_dict = obj
             self.class_name = self.temp_dict.pop('__class__', None)
             self.key = f"{self.class_name}.{str(self.temp_dict['id'])}"
-            FileStorage.__objects[self.key] = obj_copy.__dict__
+            if type(obj_copy) != dict:
+                FileStorage.__objects[self.key] = obj_copy.__dict__
+            else:
+                FileStorage.__objects[self.key] = obj_copy
         return FileStorage.__objects
         
     def new(self, obj):
