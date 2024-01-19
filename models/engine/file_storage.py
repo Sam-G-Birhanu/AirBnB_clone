@@ -51,7 +51,7 @@ class FileStorage:
     def save(self):
         """Serializes __objects to the JSON file (path: __file_path)."""
         ser_dict = copy.deepcopy(FileStorage.__objects)
-        for key, obj in serialized_dict.items():
+        for key, obj in ser_dict.items():
             new_obj = obj.to_dict()
             ser_dict[key] = new_obj
         
