@@ -54,10 +54,16 @@ class FileStorage:
         # obj_copy.created_at = obj_copy.created_at.isoformat()
         FileStorage.__objects[self.key] = obj_copy
         # print(obj_copy.__dict__)
+        print("in new method")
+        print(FileStorage.__objects)
+        print("in new method")
         
     def save(self):
         """Serializes __objects to the JSON file (path: __file_path)."""
         new_dict = copy.deepcopy(FileStorage.__objects)
+        print("in save method")
+        print(FileStorage.__objects)
+        print("in save method")
         if type(new_dict) != dict:
             new_dict = new_dict.__dict__
         # else:
