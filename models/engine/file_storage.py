@@ -100,7 +100,11 @@ class FileStorage:
                     FileStorage.__objects[key] = instance
                     # print(FileStorage.__objects[key])
                     # print(instance)
-            # print(self.all())
+            print("in reload method")
+            print(FileStorage.__objects)
+            print("in reload method")
+            
+        
             # # FileStorage.__objects = BaseModel(my_dict)
         else:
             pass
