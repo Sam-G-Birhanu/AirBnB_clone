@@ -33,8 +33,11 @@ class FileStorage:
         
     def new(self, obj):
         """Sets in __objects the obj with key <obj class name>.id."""
-        key = f"{obj.__class__.__name__}.{obj.id}"
-        FileStorage.__objects[key] = obj
+        if obj:
+            key = f"{obj.__class__.__name__}.{obj.id}"
+            FileStorage.__objects[key] = obj
+        else:
+            pass
         
         # obj_copy = copy.deepcopy(obj)
         # self.temp_dict = obj.to_dict()
