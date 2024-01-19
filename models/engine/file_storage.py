@@ -1,7 +1,8 @@
+#!/usr/bin/python3
 import json
 import os
 import copy
-from models.base_model import BaseModel
+# from models.base_model import BaseModel
 import importlib
 from datetime import datetime
 """ The class FileStorage contains data serialization methods.
