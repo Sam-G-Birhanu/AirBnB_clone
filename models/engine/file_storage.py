@@ -53,33 +53,16 @@ class FileStorage:
         
     def save(self):
         """Serializes __objects to the JSON file (path: __file_path)."""
-        ser_dict = copy.deepcopy(FileStorage.__objects)
-        for key, obj in ser_dict.items():
-            new_obj = obj.to_dict()
-            ser_dict[key] = new_obj
-        
-        # new_dict = copy.deepcopy(FileStorage.__objects)
-        # print("in save method")
-        # print(FileStorage.__objects)
-        # print("in save method")
-        # if type(new_dict) != dict:
-        #     new_dict = new_dict.__dict__
-        # # else:
-        # #     # print("This is type of new_dict in save")
-        # #     # print(type(new_dict))
-        # for key,obj in new_dict.items():
-        #     # print(type(obj))
-        #     if type(obj) != dict:
-        #         # print("i'm in")
-        #         new_dict[key] = obj.__dict__
-        #         # print(type(obj))
-        #         # print(obj)
-        #     new_dict[key]['updated_at'] = new_dict[key]['updated_at'].isoformat()
-        #     new_dict[key]['created_at'] = new_dict[key]['created_at'].isoformat()
-        # # print(new_dict)
-        __objects_json = json.dumps(ser_dict)
-        with open(FileStorage.__file_path, 'w') as file:
-            file.write(__objects_json)
+        if FileStorage.__file_path != None:
+            ser_dict = copy.deepcopy(FileStorage.__objects)
+            for key, obj in ser_dict.items():
+                new_obj = obj.to_dict()
+                ser_dict[key] = new_obj
+            __objects_json = json.dumps(ser_dict)
+            with open(FileStorage.__file_path, 'w') as file:
+                file.write(__objects_json)
+        else:
+            pass
 
     def reload(self):
         """Deserializes the JSON file to __objects (only if the JSON file (__file_path) exists)."""
@@ -93,29 +76,5 @@ class FileStorage:
                     class_ = getattr(module, 'BaseModel')
                     instance = class_(**dict_obj)
                     FileStorage.__objects[key] = instance
-                
-            #     # FileStorage.__objects = deserialized_data
-            #     for key, value in deserialized_data.items():
-            #         # class_name, obj_id = key.split('.')
-            #         module_name = 'models.base_model'
-            #         module = importlib.import_module(module_name)
-            #         class_ = getattr(module, 'BaseModel')
-            #         instance = class_(**value)
-            #         ####
-            #         instance.updated_at = datetime.strptime(instance.updated_at.isoformat(),"%Y-%m-%dT%H:%M:%S.%f")
-            #         instance.created_at = datetime.strptime(instance.created_at.isoformat(),"%Y-%m-%dT%H:%M:%S.%f")
-            #         ####
-            #         print("I'm key")
-            #         print(key)
-            #         print(instance)
-            #         FileStorage.__objects[key] = instance
-            #         # print(FileStorage.__objects[key])
-            #         # print(instance)
-            # print("in reload method")
-            # print(FileStorage.__objects)
-            # print("in reload method")
-            
-        
-            # # FileStorage.__objects = BaseModel(my_dict)
         else:
             pass
