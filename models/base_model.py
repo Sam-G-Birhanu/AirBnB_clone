@@ -36,33 +36,37 @@ class BaseModel:
                 if key == "updated_at":
                     setattr(self, 'updated_at' , datetime.strptime(kwargs[key], "%Y-%m-%dT%H:%M:%S.%f"))
         else:
-            self.my_number = ""
-            self.name = ""
+            # self.my_number = ""
+            # self.name = ""
             self.updated_at = datetime.now()
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()         
-            storage.new(self)
+            # storage.new(self)
         
-    def updated_at(self):
-        """Return the current value of the 'updated_at' attribute."""
-        return self.updated_at
+    # def updated_at(self):
+    #     """Return the current value of the 'updated_at' attribute."""
+    #     return self.updated_at
     
     def save(self):
         """Update the 'updated_at' attribute to the current timestamp."""
-        self.updated_at = datetime.now().isoformat()
+        self.updated_at = datetime.now()
+        
+        # self.updated_at = datetime.now().isoformat()
         # self.created_at = datetime.now().isoformat()
         # if type(storage) != dict:
         #     storage = storage.__dict__
-        storage.save()
+    
+        # storage.save()
 
     def to_dict(self):
         """Convert the object to a dictionary for serialization."""
-        inst_dict = {'__class__': 'BaseModel'}
-        inst_dict.update(self.__dict__.copy())
-        inst_dict['created_at'] = self.created_at.isoformat()
-        inst_dict['updated_at'] = self.updated_at.isoformat()
+        inst_dict = {'__class__': self.__class__.__name__}
+        # inst_dict = {'__class__': 'BaseModel'}
+        inst_dict.update(copy.deepcopy(self.__dict__))
+        inst_dict['created_at'] = inst_dict['created_at'].isoformat()
+        inst_dict['updated_at'] = inst_dict['updated_at'].isoformat()
         return inst_dict
 
     def __str__(self):
         """Return a human-readable string representation of the object."""
-        return f"[{BaseModel.__name__}] ({self.id}) {str(self.__dict__)}"
+        return f"[{self.__class__.__name__}] ({self.id}) {str(self.__dict__)}"
