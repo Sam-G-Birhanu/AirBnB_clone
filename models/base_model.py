@@ -41,7 +41,7 @@ class BaseModel:
             self.updated_at = datetime.now()
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()         
-            # storage.new(self)
+            storage.new(self)
         
     # def updated_at(self):
     #     """Return the current value of the 'updated_at' attribute."""
@@ -56,7 +56,7 @@ class BaseModel:
         # if type(storage) != dict:
         #     storage = storage.__dict__
     
-        # storage.save()
+        storage.save()
 
     def to_dict(self):
         """Convert the object to a dictionary for serialization."""
