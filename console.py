@@ -148,6 +148,7 @@ class HBNBCommand(cmd.Cmd):
                             my_objects.save()
                         else:
                             print("** value missing **")
+                            print(arg)
                     else:
                         print("** attribute name missing **")
                 else:
