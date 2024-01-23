@@ -112,5 +112,17 @@ class HBNBCommand(cmd.Cmd):
                 print('** instance id missing **')
         else:
             print("** class name missing **")
+            
+    def do_all(self, arg):
+    """ prints all stored objects """
+        if arg:
+            arg = self.process_arg(arg)
+            if arg[0] == 'BaseModel':
+                print(storage.values())
+            else:
+                print('** class doesn't exist **')
+        else:
+            print(storage.values())
+
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
