@@ -142,8 +142,8 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
             if len(arg) >= 2:
                 if find_key in my_objects:
-                    if len(args) >=3:
-                        if len(args) >= 4:
+                    if len(arg) >=3:
+                        if len(arg) >= 4:
                             my_objects[find_key].arg[2] = arg[3]
                             my_objects.save()
                         else:
