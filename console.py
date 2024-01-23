@@ -135,7 +135,7 @@ class HBNBCommand(cmd.Cmd):
                 temp_arg = []
                 temp_arg.append(arg[0])
                 temp_arg.append(arg[1])
-                arg = temp_arg
+                arg_key = temp_arg
                 find_key = ".".join(arg_key)
                 arg_key = temp_arg
             
