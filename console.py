@@ -104,7 +104,7 @@ class HBNBCommand(cmd.Cmd):
             if len(arg) >= 2:
                 if find_key in my_objects:
                     my_obj = storage.all()
-                    del my_obj['find_key']
+                    del my_obj[find_key]
                     storage.save()
                 else:
                     print('** no instance found **')
