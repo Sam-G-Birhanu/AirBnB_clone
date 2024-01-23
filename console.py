@@ -135,8 +135,6 @@ class HBNBCommand(cmd.Cmd):
             temp_arg = []
             temp_arg.append(arg[0])
             temp_arg.append(arg[1])
-            # temp_arg.append(arg[2])
-            # temp_arg.append(arg[3])
             arg_key = temp_arg
             
             find_key = ".".join(arg_key)
@@ -149,9 +147,7 @@ class HBNBCommand(cmd.Cmd):
                 if find_key in my_objects:
                     if len(arg) >=3:
                         if len(arg) >= 4:
-                            print(arg[2])
                             setattr(my_objects[find_key], arg[2], arg[3])
-                            # my_objects[find_key].arg[2] = arg[3]
                             storage.save()
                         else:
                             print("** value missing **")
