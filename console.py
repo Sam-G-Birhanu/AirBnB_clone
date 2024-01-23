@@ -84,11 +84,11 @@ class HBNBCommand(cmd.Cmd):
                 if find_key in my_objects:
                     print(my_objects[find_key])
                 else:
-                    print('** no instance found **')
+                    print("** no instance found **")
             else:
                 print("** instance id missing **")
         else:
-            print("** class name missing ** ")
+            print("** class name missing **")
     def do_destroy(self,arg):
         if arg:
             arg = self.process_arg(arg)
