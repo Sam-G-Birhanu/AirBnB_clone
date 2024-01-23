@@ -80,7 +80,7 @@ class HBNBCommand(cmd.Cmd):
             # print(find_key)
             if arg[0] != 'BaseModel':
                 print("** class doesn't exist **")
-            if len(arg) >= 2:
+            elif len(arg) >= 2:
                 if find_key in my_objects:
                     print(my_objects[find_key])
                 else:
@@ -141,7 +141,7 @@ class HBNBCommand(cmd.Cmd):
             my_objects = storage.all()
             if arg[0] != 'BaseModel':
                 print("** class doesn't exist **")
-            if len(arg) >= 2:
+            elif len(arg) >= 2:
                 if find_key in my_objects:
                     if len(arg) >=3:
                         if len(arg) >= 4:
