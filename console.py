@@ -70,7 +70,7 @@ class HBNBCommand(cmd.Cmd):
         """ shows the instance with the specified id """
         if arg:
             arg = self.process_arg(arg)
-            if arg[0] and arg[1]:
+            if len(arg) >= 2:
                 temp_arg = []
                 temp_arg.append(arg[0])
                 temp_arg.append(arg[1])
@@ -80,7 +80,7 @@ class HBNBCommand(cmd.Cmd):
             # print(find_key)
             if arg[0] != 'BaseModel':
                 print("** class doesn't exist **")
-            if arg[1]:
+            if len(arg) >= 2:
                 if find_key in my_objects:
                     print(my_objects[find_key])
                 else:
