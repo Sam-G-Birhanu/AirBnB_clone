@@ -114,7 +114,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             
     def do_all(self, arg):
-    """ prints all stored objects """
+        """ prints all stored objects """
         if arg:
             arg = self.process_arg(arg)
             if arg[0] == 'BaseModel':
