@@ -62,6 +62,7 @@ class FileStorage:
             __objects_json = json.dumps(ser_dict)
             with open(FileStorage.__file_path, 'w') as file:
                 file.write(__objects_json)
+                print('success')
         else:
             pass
 
