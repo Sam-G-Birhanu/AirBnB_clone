@@ -61,7 +61,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
             else:
                 instance = BaseModel()
-                instance.save()
+                storage.save()
                 print(instance.id)
         else:
             print("** class name missing **")
