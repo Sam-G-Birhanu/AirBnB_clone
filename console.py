@@ -131,13 +131,14 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, arg):
         """ updates a stored objects attribute """
         if arg:
-            arg = self.process_arg(arg)
-            temp_arg = []
-            temp_arg.append(arg[0])
-            temp_arg.append(arg[1])
-            arg_key = temp_arg
+            if len(arg) >= 2:
+                temp_arg = []
+                temp_arg.append(arg[0])
+                temp_arg.append(arg[1])
+                arg = temp_arg
+                find_key = ".".join(arg_key)
+                arg_key = temp_arg
             
-            find_key = ".".join(arg_key)
             my_objects = storage.all()
             if arg[0] != 'BaseModel':
                 print("** class doesn't exist **")
