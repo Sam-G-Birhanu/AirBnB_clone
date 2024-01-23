@@ -135,10 +135,11 @@ class HBNBCommand(cmd.Cmd):
             temp_arg = []
             temp_arg.append(arg[0])
             temp_arg.append(arg[1])
-            temp_arg.append(arg[2])
-            temp_arg.append(arg[3])
-            arg = temp_arg
-            find_key = ".".join(arg)
+            # temp_arg.append(arg[2])
+            # temp_arg.append(arg[3])
+            arg_key = temp_arg
+            
+            find_key = ".".join(arg_key)
             my_objects = storage.all()
             print(" before ifs")
             print(arg)
