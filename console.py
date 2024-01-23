@@ -120,7 +120,7 @@ class HBNBCommand(cmd.Cmd):
             if arg[0] == 'BaseModel':
                 print(storage.values())
             else:
-                print('** class doesn't exist **')
+                print("** class doesn't exist **")
         else:
             print(storage.values())
 
