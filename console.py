@@ -138,6 +138,8 @@ class HBNBCommand(cmd.Cmd):
             arg = temp_arg
             find_key = ".".join(arg)
             my_objects = storage.all()
+            print(" before ifs")
+            print(arg)
             if arg[0] != 'BaseModel':
                 print("** class doesn't exist **")
             if len(arg) >= 2:
