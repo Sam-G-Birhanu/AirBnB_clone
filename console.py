@@ -103,7 +103,8 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
             if len(arg) >= 2:
                 if find_key in my_objects:
-                    del storage.__objects['find_key']
+                    my_obj = storage.all()
+                    del my_obj['find_key']
                     storage.save()
                 else:
                     print('** no instance found **')
