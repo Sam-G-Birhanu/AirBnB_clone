@@ -152,7 +152,7 @@ class HBNBCommand(cmd.Cmd):
                             print(arg[2])
                             setattr(my_objects[find_key], arg[2], arg[3])
                             # my_objects[find_key].arg[2] = arg[3]
-                            my_objects.save()
+                            storage.save()
                         else:
                             print("** value missing **")
                             
