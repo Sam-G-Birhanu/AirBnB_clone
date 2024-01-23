@@ -127,6 +127,34 @@ class HBNBCommand(cmd.Cmd):
             my_dict = storage.all()
             new_list = [obj.__str__() for obj in my_dict.values()]
             print(new_list)
-
+    
+    def do_update(self, arg):
+        """ updates a stored objects attribute """
+        if arg:
+            arg = self.process_arg(arg)
+            temp_arg = []
+            temp_arg.append(arg[0])
+            temp_arg.append(arg[1])
+            arg = temp_arg
+            find_key = ".".join(arg)
+            my_objects = storage.all()
+            if arg[0] != 'BaseModel':
+                print("** class doesn't exist **")
+            if len(arg) >= 2:
+                if find_key in my_objects:
+                    if len(args) >=3:
+                        if len(args) >= 4:
+                            my_objects[find_key].arg[2] = arg[3]
+                            my_objects.save()
+                        else:
+                            print("** value missing **")
+                    else:
+                        print("** attribute name missing **")
+                else:
+                    print("** no instance found **")
+            else:
+                print("** instance id missing **")
+        else:
+            print("** class doesn't exist **")
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
