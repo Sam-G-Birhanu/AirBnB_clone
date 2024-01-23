@@ -101,7 +101,7 @@ class HBNBCommand(cmd.Cmd):
             my_objects = storage.all()
             if arg[0] != 'BaseModel':
                 print("** class doesn't exist **")
-            if len(arg) >= 2:
+            elif len(arg) >= 2:
                 if find_key in my_objects:
                     my_obj = storage.all()
                     del my_obj[find_key]
@@ -151,7 +151,6 @@ class HBNBCommand(cmd.Cmd):
                             print("** value missing **")
                             
                     else:
-                        print(arg)
                         print("** attribute name missing **")
                 else:
                     print("** no instance found **")
