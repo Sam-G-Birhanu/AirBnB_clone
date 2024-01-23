@@ -79,11 +79,14 @@ class HBNBCommand(cmd.Cmd):
             # print(find_key)
             if arg[0] != 'BaseModel':
                 print("** class doesn't exist **")
-            else:
-                if find_key in my_objects:
-                    print(my_objects[find_key])
+            if arg[1]:
                 else:
-                    print('** instance id missing **')
+                    if find_key in my_objects:
+                        print(my_objects[find_key])
+                    else:
+                        print('** no instance found **')
+            else:
+                print("** instance id missing **")
         else:
             print("** class name missing ** ")
 if __name__ == "__main__":
