@@ -131,6 +131,7 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, arg):
         """ updates a stored objects attribute """
         if arg:
+            arg = self.process_arg(arg)
             if len(arg) >= 2:
                 temp_arg = []
                 temp_arg.append(arg[0])
