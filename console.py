@@ -124,7 +124,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
         else:
             my_dict = storage.all()
-            print(list(__str(my_dict.values())))
+            print(list(__str__(my_dict.values())))
             # print(liststorage.values())
 
 if __name__ == "__main__":
