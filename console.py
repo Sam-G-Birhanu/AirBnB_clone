@@ -65,5 +65,26 @@ class HBNBCommand(cmd.Cmd):
                 print(instance.id)
         else:
             print("** class name missing **")
+
+    def do_show(self,arg):
+        """ shows the instance with the specified id """
+        if arg:
+            arg = self.process_arg(arg)
+            temp_arg = []
+            temp_arg.append(arg[0])
+            temp_arg.append(arg[1])
+            arg = temp_arg
+            find_key = ".".join(arg)
+            my_objects = storage.all()
+            # print(find_key)
+            if arg[0] != 'BaseModel':
+                print("** class doesn't exist **")
+            else:
+                if find_key in my_objects:
+                    print(my_objects[find_key])
+                else:
+                    print('** instance id missing **')
+        else:
+            print("** class name missing ** ")
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
