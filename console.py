@@ -70,11 +70,12 @@ class HBNBCommand(cmd.Cmd):
         """ shows the instance with the specified id """
         if arg:
             arg = self.process_arg(arg)
-            temp_arg = []
-            temp_arg.append(arg[0])
-            temp_arg.append(arg[1])
-            arg = temp_arg
-            find_key = ".".join(arg)
+            if arg[0] and arg[1]:
+                temp_arg = []
+                temp_arg.append(arg[0])
+                temp_arg.append(arg[1])
+                arg = temp_arg
+                find_key = ".".join(arg)
             my_objects = storage.all()
             # print(find_key)
             if arg[0] != 'BaseModel':
