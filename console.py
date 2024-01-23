@@ -34,24 +34,24 @@ class HBNBCommand(cmd.Cmd):
         pass
     def process_arg(self, arg):
         """ processes arg to handle string separated by space in double quotes """
-            my_list = arg
-            matches = re.findall(r'"([^"]*)"', my_list)
-            arg_a = parts = re.split(r'"([^"]*)"', my_list)
-            arg_a = [part.strip() for part in arg_a if part.strip()]
-            for arg_cmd in arg_a:
-                if arg_cmd not in matches:
-                    arg_a[arg_a.index(arg_cmd)] = arg_cmd.split(" ")
+        my_list = arg
+        matches = re.findall(r'"([^"]*)"', my_list)
+        arg_a = parts = re.split(r'"([^"]*)"', my_list)
+        arg_a = [part.strip() for part in arg_a if part.strip()]
+        for arg_cmd in arg_a:
+            if arg_cmd not in matches:
+                arg_a[arg_a.index(arg_cmd)] = arg_cmd.split(" ")
 
-            new_list = []
-            for i in arg_a:
+        new_list = []
+        for i in arg_a:
                 
-                if type(i) == list:
-                    for list_el in i:
-                        new_list.append(list_el)
-                else:
-                    new_list.append(i)
-            arg_a = new_list     
-            return arg_a
+            if type(i) == list:
+                for list_el in i:
+                    new_list.append(list_el)
+            else:
+                new_list.append(i)
+        arg_a = new_list     
+        return arg_a
         
     def do_create(self, arg):
         """ creates a new BaseModel instance from the console """
