@@ -91,6 +91,13 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing ** ")
     def do_destroy(self,arg):
         if arg:
+            if len(arg) >= 2:
+                temp_arg = []
+                temp_arg.append(arg[0])
+                temp_arg.append(arg[1])
+                arg = temp_arg
+                find_key = ".".join(arg)
+            my_objects = storage.all()
             arg = self.process_arg(arg)
             if arg[0] != 'BaseModel':
                 print("** class doesn't exist **")
