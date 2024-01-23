@@ -125,7 +125,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             my_dict = storage.all()
             print(my_dict.values())
-            print(storage.values())
+            # print(storage.values())
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
