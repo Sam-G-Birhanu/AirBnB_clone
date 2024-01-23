@@ -150,7 +150,8 @@ class HBNBCommand(cmd.Cmd):
                     if len(arg) >=3:
                         if len(arg) >= 4:
                             print(arg[2])
-                            my_objects[find_key].arg[2] = arg[3]
+                            setattr(my_objects[find_key], arg[2], arg[3])
+                            # my_objects[find_key].arg[2] = arg[3]
                             my_objects.save()
                         else:
                             print("** value missing **")
