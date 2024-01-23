@@ -119,13 +119,14 @@ class HBNBCommand(cmd.Cmd):
             arg = self.process_arg(arg)
             if arg[0] == 'BaseModel':
                 my_dict = storage.all()
-                print(my_dict.values())
+                new_list = [obj.__str__() for obj in my_dict.values()]
+                print(new_list)
             else:
                 print("** class doesn't exist **")
         else:
             my_dict = storage.all()
-            print(list(__str__(my_dict.values())))
-            # print(liststorage.values())
+            new_list = [obj.__str__() for obj in my_dict.values()]
+            print(new_list)
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
