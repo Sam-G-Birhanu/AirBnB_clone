@@ -21,7 +21,7 @@ class HBNBCommand(cmd.Cmd):
         Run this script to start the HBNB command-line interpreter.
     """
     prompt = "(hbnb) "
-    
+    class_list = ['BaseModel', 'User']
     def do_EOF(self, line):
         """Handles the End-of-File event, terminating the program."""
         return True
@@ -57,10 +57,11 @@ class HBNBCommand(cmd.Cmd):
         """ creates a new BaseModel instance from the console """
         if arg:
             arg = self.process_arg(arg)
-            if arg[0] != 'BaseModel':
+            if arg[0] not in class_list:
                 print("** class doesn't exist **")
             else:
-                instance = BaseModel()
+                class_name = arg[0]
+                instance = class_name()
                 storage.save()
                 print(instance.id)
         else:
@@ -78,7 +79,7 @@ class HBNBCommand(cmd.Cmd):
                 find_key = ".".join(arg)
             my_objects = storage.all()
             # print(find_key)
-            if arg[0] != 'BaseModel':
+            if arg[0] not in class_list:
                 print("** class doesn't exist **")
             elif len(arg) >= 2:
                 if find_key in my_objects:
@@ -99,7 +100,7 @@ class HBNBCommand(cmd.Cmd):
                 arg = temp_arg
                 find_key = ".".join(arg)
             my_objects = storage.all()
-            if arg[0] != 'BaseModel':
+            if arg[0] not in class_list:
                 print("** class doesn't exist **")
             elif len(arg) >= 2:
                 if find_key in my_objects:
@@ -117,7 +118,7 @@ class HBNBCommand(cmd.Cmd):
         """ prints all stored objects """
         if arg:
             arg = self.process_arg(arg)
-            if arg[0] == 'BaseModel':
+            if arg[0] not in class_list:
                 my_dict = storage.all()
                 new_list = [obj.__str__() for obj in my_dict.values()]
                 print(new_list)
@@ -141,7 +142,7 @@ class HBNBCommand(cmd.Cmd):
                 arg_key = temp_arg
             
             my_objects = storage.all()
-            if arg[0] != 'BaseModel':
+            if arg[0] not in class_list:
                 print("** class doesn't exist **")
             elif len(arg) >= 2:
                 if find_key in my_objects:
