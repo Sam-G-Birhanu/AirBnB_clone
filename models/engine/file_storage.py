@@ -61,10 +61,9 @@ class FileStorage:
                 deserialized_data = json.loads(data)
                 for key, dict_obj in deserialized_data.items():
                     class_name = key.split('.')[0]
-                    if class_name == 'BaseModel':
-                        module_name = 'models.base_model'
-                    elif class_name == 'User':
-                        module_name =  'models.user'
+                    class_list = = ['BaseModel', 'User', 'Place', 'State', 'City', 'Amenity', 'Review']
+                    if class_name in class_list:
+                        module_name = f'models.{class_name}'
                     module = importlib.import_module(module_name)
                     class_ = getattr(module, class_name)
                     instance = class_(**dict_obj)
