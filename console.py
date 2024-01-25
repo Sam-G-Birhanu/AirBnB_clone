@@ -61,7 +61,8 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
             else:
                 class_name = arg[0]
-                instance = class_name()
+                cls = globals().get(class_name)
+                instance = cls()
                 storage.save()
                 print(instance.id)
         else:
