@@ -119,7 +119,7 @@ class HBNBCommand(cmd.Cmd):
         """ prints all stored objects """
         if arg:
             arg = self.process_arg(arg)
-            if arg[0] not in HBNBCommand.class_list:
+            if arg[0] in HBNBCommand.class_list:
                 my_dict = storage.all()
                 new_list = [obj.__str__() for obj in my_dict.values()]
                 print(new_list)
