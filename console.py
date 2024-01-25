@@ -6,7 +6,7 @@ from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 from models import storage
 import re
-
+from models.user import User
 class HBNBCommand(cmd.Cmd):
     """The HBNBCommand class defines a command-line interpreter for the HBNB project.
 
