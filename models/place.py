@@ -2,7 +2,7 @@
 from models.base_model import BaseModel
 
 class Place(BaseModel):
-  city = ""
+  city_id = ""
   user_id = ""
   name = ""
   description = ""
