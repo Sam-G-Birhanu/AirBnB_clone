@@ -63,7 +63,7 @@ class FileStorage:
                     class_name = key.split('.')[0]
                     if class_name == 'BaseModel':
                         module_name = 'models.base_model'
-                    elif class_name == User:
+                    elif class_name == 'User':
                         module_name =  'models.user'
                     module = importlib.import_module(module_name)
                     class_ = getattr(module, class_name)
