@@ -7,6 +7,11 @@ from models.engine.file_storage import FileStorage
 from models import storage
 import re
 from models.user import User
+from models.amenity import Amenity
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
 class HBNBCommand(cmd.Cmd):
     """The HBNBCommand class defines a command-line interpreter for the HBNB project.
 
